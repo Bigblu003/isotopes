@@ -1,7 +1,15 @@
 #Visualising Gamma data
 library(tidyverse)
 library(readxl)
-Gamma_data <- read_excel("data/Gamma data.xlsx")
+
+#read in data file
+gamma_data <- read_csv("data/Gamma_data.csv")
+
+
+#write gamma_data csv to examine tidy data frame. https://csiro-data-school.github.io/focus-assignments/
+
+### write_csv(Gamma_data, "data/gamma_data.csv")
+
 
 ggplot(Gamma_data, aes(x= type, y = d13C, colour= site)) +
  labs(
