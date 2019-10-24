@@ -10,6 +10,15 @@ gamma_data <- read_csv("data/Gamma_data.csv")
 
 ### write_csv(Gamma_data, "data/gamma_data.csv")
 
+#read in column names
+colnames(gamma_data)
+
+#renaming columns to something meaningful and machine readable.
+rename(gamma_data, sample_name = "Sample name", sample = "sample", site = "site", type = "type",  N15 ="15N", C13 ="13C", N_percent="N [%]", C_percent ="C [%]", CN_ratio= "C/N" )
+
+#change character columns to factors.
+#when we cal new values we mutate 
+
 
 ggplot(Gamma_data, aes(x= type, y = d13C, colour= site)) +
  labs(
@@ -32,7 +41,7 @@ ggplot(Gamma_data,aes(x = type, y = d15N, colour = site)) +
 
 
 
-
+#I can't hear you tracy?'
 
 
 
