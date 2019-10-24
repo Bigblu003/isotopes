@@ -20,7 +20,7 @@ ggplot(Gamma_data,aes(x = type, y = d15N, colour = site)) +
   facet_wrap(~site)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-#I've changed everything now
+#I've changed everything
 
 
 
