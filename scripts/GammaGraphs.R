@@ -46,4 +46,5 @@ ggplot(Gamma_data, aes(x= site, y = d15N, colour= site)) +
   facet_wrap(~type)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
   
+summary.data.frame(gamma_data)
   
