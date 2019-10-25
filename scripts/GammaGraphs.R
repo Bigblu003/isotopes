@@ -35,6 +35,7 @@ ggplot(Gamma_data, aes(x= site, y = d13C, colour= site)) +
   geom_line() +
   facet_wrap(~type)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  theme_bw()
 
 #ggplot for N%
 ggplot(Gamma_data, aes(x= site, y = d15N, colour= site)) +
@@ -44,4 +45,5 @@ ggplot(Gamma_data, aes(x= site, y = d15N, colour= site)) +
   geom_line() +
   facet_wrap(~type)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-
+  
+  
