@@ -2,33 +2,23 @@
 library(tidyverse)
 library(readxl)
 
-#read in data file
-gamma_data <- read_csv("data/Gamma_data.csv")
+#Visualising Gamma data getting an idea of the spread of the data for each tissue type and site
+library(tidyverse)
+library(readxl)
+Gamma_data <- read_excel("data/Gamma data.xlsx")
 
+#Plots decribing data from each site
 
-#write gamma_data csv to examine tidy data frame. https://csiro-data-school.github.io/focus-assignments/
-
-### write_csv(Gamma_data, "data/gamma_data.csv")
-
-#read in column names
-colnames(gamma_data)
-
-#renaming columns to something meaningful and machine readable.
-rename(gamma_data, sample_name = "Sample name", sample = "sample", site = "site", type = "type",  N15 ="15N", C13 ="13C", N_percent="N [%]", C_percent ="C [%]", CN_ratio= "C/N" )
-
-#change character columns to factors.
-#when we cal new values we mutate 
-
-
+#ggplot for 13C
 ggplot(Gamma_data, aes(x= type, y = d13C, colour= site)) +
- labs(
- title ="Site compared to 13C stable isotope ratios",
- x="Tissue type", y= expression(delta ~ "13c"))+
- geom_line() +
- facet_wrap(~site)+
- theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  labs(
+    title ="Site compared to 13C stable isotope ratios",
+    x="Tissue type", y= expression(delta ~ "13c"))+
+  geom_line() +
+  facet_wrap(~site)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-
+#ggplot for 15N
 ggplot(Gamma_data,aes(x = type, y = d15N, colour = site)) +
   labs(
     title ="Site compared to 15N stable isotope ratios",
@@ -37,16 +27,21 @@ ggplot(Gamma_data,aes(x = type, y = d15N, colour = site)) +
   facet_wrap(~site)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-#I've changed everything
+#ggplot for C%
+ggplot(Gamma_data, aes(x= site, y = d13C, colour= site)) +
+  labs(
+    title ="Tissue type compared to 13C stable isotope ratios",
+    x="site", y= expression(delta ~ "13c"))+
+  geom_line() +
+  facet_wrap(~type)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-
-
-#I can't hear you tracy?'
-
-
-
-
-
-
-
+#ggplot for N%
+ggplot(Gamma_data, aes(x= site, y = d15N, colour= site)) +
+  labs(
+    title ="Tissue type compared to 15N stable isotope ratios",
+    x="site", y= expression(delta ~ "15N"))+
+  geom_line() +
+  facet_wrap(~type)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
