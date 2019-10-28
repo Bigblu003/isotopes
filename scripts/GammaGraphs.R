@@ -1,6 +1,4 @@
 #Visualising Gamma data
-library(tidyverse)
-library(readxl)
 
 #Visualising Gamma data getting an idea of the spread of the data for each tissue type and site
 library(tidyverse)
@@ -45,6 +43,18 @@ ggplot(Gamma_data, aes(x= site, y = d15N, colour= site)) +
   geom_line() +
   facet_wrap(~type)+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-  
-summary.data.frame(gamma_data)
-  
+# having problems getting [%N] and [%C] plotted
+
+
+summary<-summary.data.frame(gamma_data)
+
+summary
+select(Gamma_data, d13C, d15N, site, type,sample)
+Isot<-select(Gamma_data,d13C, d15N, site, type)
+filter(Gamma_data, type>=crab)
+filter(Gamma_data, type=crab)
+iso<-filter(Gamma_data, type=="crab")
+iso
+iso
+
+
